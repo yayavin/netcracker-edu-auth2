@@ -21,11 +21,21 @@ public class ConnectionService {
         return "";
     }
     
-    public static User receiveFrobDatabase(String login){
+    public static User receiveFromDatabase(String login){
         
         User user = null;
         
+        //здесь же фиксим lastConnection
+        //если >10 минут, то обнуляем и возвращаем
+        
         return user;
+    }
+    
+    public static boolean addNewUser(User user){
+        
+        //добавить логику
+        
+        return true;
     }
     
 }

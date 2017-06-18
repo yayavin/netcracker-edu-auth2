@@ -2,6 +2,7 @@ package com.mycompany.auth2.controllers;
 
 import com.mycompany.auth2.dbconnection.ConnectionService;
 import com.mycompany.auth2.entitys.User;
+import java.util.Date;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.DigestUtils;
@@ -22,7 +23,7 @@ public class LogIn {
         
         boolean isLogIn = false;
         
-        User user = ConnectionService.receiveFrobDatabase(login);
+        User user = ConnectionService.receiveFromDatabase(login);
         
         if(!user.getLastActivity().equals(null)){
             return "redirect:/error_page_false_twice_login";
@@ -40,10 +41,12 @@ public class LogIn {
         //сравниваю хэши
         //подправить само сравнение
         if(hashedPsw.equals(user.getHashedPassword()) || hashedPswAndLogin.equals(user.getHashedPassword())){
+            String sessionID = DigestUtils.md5DigestAsHex((user.getLogin() + (new Date())).getBytes());
             isLogIn = true;
         }
         
         //редиректить на страницы не REST-ово. Подфикшу позднее
+        //и ваще, я возвращаю sessionID по идее
         if(isLogIn){
             return "redirect:/welcome_page";
         }else{

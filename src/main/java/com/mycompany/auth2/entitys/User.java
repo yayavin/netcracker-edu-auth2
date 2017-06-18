@@ -22,6 +22,8 @@ public class User {
     
     private String login;
     
+    private String email;
+    
     private String hashedPsw;
     
     private Date lastActivity;
@@ -46,6 +48,16 @@ public class User {
     
     public String getLogin(){
         return login;
+    }
+    
+    //--------------------------------
+    
+    public void setEmail(String email){
+        this.email = email;
+    }
+    
+    public String getEmail(){
+        return email;
     }
     
     //--------------------------------
