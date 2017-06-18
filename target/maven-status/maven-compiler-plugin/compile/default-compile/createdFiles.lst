@@ -1,6 +1,4 @@
+com\mycompany\auth2\controllers\LogOut.class
 com\mycompany\auth2\entitys\User.class
-com\mycompany\auth2\controller\LogIn.class
-.netbeans_automatic_build
-com\mycompany\auth2\controller\Register.class
-com\mycompany\auth2\controller\LogOut.class
-com\mycompany\auth2\MainServlet.class
+com\mycompany\auth2\controllers\Register.class
+com\mycompany\auth2\controllers\LogIn.class

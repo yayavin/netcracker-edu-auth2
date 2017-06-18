@@ -5,12 +5,9 @@
  */
 package com.mycompany.auth2.entitys;
 
-import javafx.scene.chart.PieChart.Data;
-import javax.persistence.Column;
+import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
@@ -18,28 +15,18 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "Users") //настроить
 public class User {
     
     @Id
-    @Column(name = "ID")
-    @GeneratedValue
     private Integer id;
     
-    @Column(name = "LOGIN")
     private String login;
     
-    @Column(name = "EMAIL")
-    private String email;
-    
-    @Column(name = "PASSWORD")
     private String psw;
     
-    @Column(name = "OLD_PASSWORD")
-    private String oldPsw;
+    private Date lastActivity;
     
-    @Column(name = "LAST_ACTIVITY")
-    private Data lastActivity;
+    private int sessionID;
     
     //--------------------------------------------------------------------------
     
@@ -63,16 +50,6 @@ public class User {
     
     //--------------------------------
     
-    public void setEmail(String email){
-        this.email = email;
-    }
-    
-    public String getEmail(){
-        return email;
-    }
-    
-    //--------------------------------
-    
     public void setPassword(String psw){
         this.psw = psw;
     }
@@ -83,21 +60,21 @@ public class User {
     
     //--------------------------------
     
-    public void setOldPassword(String oldPsw){
-        this.oldPsw = oldPsw;
+    public void setSessionID(int sessionID){
+        this.sessionID = sessionID;
     }
     
-    public String getOldPassword(){
-        return oldPsw;
+    public int getSessionID(){
+        return sessionID;
     }
     
     //--------------------------------
     
-    public void setLogin(Data lastActivity){
-        this.lastActivity = lastActivity;
+    public void setLastActivity(){
+        //updating lastActivity in DB
     }
     
-    public Data getLastActivity(){
+    public Date getLastActivity(){
         return lastActivity;
     }
     
