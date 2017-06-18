@@ -22,7 +22,7 @@ public class User {
     
     private String login;
     
-    private String psw;
+    private String hashedPsw;
     
     private Date lastActivity;
     
@@ -50,12 +50,12 @@ public class User {
     
     //--------------------------------
     
-    public void setPassword(String psw){
-        this.psw = psw;
+    public void setHashedPassword(String psw){
+        this.hashedPsw = psw;
     }
     
-    public String getPassword(){
-        return psw;
+    public String getHashedPassword(){
+        return hashedPsw;
     }
     
     //--------------------------------
